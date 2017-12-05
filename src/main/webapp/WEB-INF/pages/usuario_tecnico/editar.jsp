@@ -52,6 +52,16 @@
 				      		<label for="emailUsuarioTecnico">E-mail</label>
 						</div>												
 					
+				      	<div class="input-field col s12">
+				      		<form:input path="senha" id="senhaUsuarioAdm" type="password"/>
+				      		<label for="senhaUsuarioAdm">Senha</label>
+						</div>			
+						
+				      	<div class="input-field col s12">
+				      		<form:input path="nivel" id="nivelUsuarioTecnico" type="number"/>
+				      		<label for="nivelUsuarioTecnico">Nível</label>
+						</div>
+						
 					</div>
 
 					<div class="row">

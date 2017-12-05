@@ -4,6 +4,7 @@ public enum Status {
 	ABERTO,
 	RESOLVIDO,
 	FECHADO,
-	PEDENTE
+	PEDENTE,
+	EM_ATENDIMENTO
 
 }

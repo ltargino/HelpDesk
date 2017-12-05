@@ -52,6 +52,11 @@
 				      		<label for="emailUsuarioCliente">E-mail</label>
 						</div>												
 					
+				      	<div class="input-field col s12">
+				      		<form:input path="senha" id="senhaUsuarioAdm" type="password"/>
+				      		<label for="senhaUsuarioAdm">Senha</label>
+						</div>					
+					
 					</div>
 
 					<div class="row">

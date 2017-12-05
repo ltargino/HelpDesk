@@ -31,11 +31,15 @@
 	
     <section id="body-content">
 
-        <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-            <a class="btn-floating btn-large blue darken-2 tooltipped" data-position="left" data-tooltip="Abrir Ticket" href="../ticket/incluir">
-                <i class="material-icons">add</i>
-            </a>
-        </div>
+		<c:if test="${ usuario_autenticado.getClass().getSimpleName() == 'UsuarioCliente' }">
+
+	        <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+	            <a class="btn-floating btn-large blue darken-2 tooltipped" data-position="left" data-tooltip="Abrir Ticket" href="../ticket/incluir">
+	                <i class="material-icons">add</i>
+	            </a>
+	        </div>
+
+		</c:if>
 
         <div class="row">
             <div class="col s10 offset-s1">
@@ -64,8 +68,15 @@
 								<td>${ticket.status}</td>
 								<td>${ticket.usuario.nome}</td>
 								<td>
-									<a href="editar/${ticket.id}" class="btn waves-effect waves-light blue">Editar</a>
-									<a href="deletar/${ticket.id}" onclick="return confirm('Confirma deletar o item de Nº ${ticket.id}?');" class="btn waves-effect waves-light red btndelete">Deletar</a>
+									<c:if test="${ usuario_autenticado.getClass().getSimpleName() == 'UsuarioCliente' }">
+										<a href="editar/${ticket.id}" class="btn waves-effect waves-light blue">Editar</a>
+										<a href="deletar/${ticket.id}" onclick="return confirm('Confirma deletar o item de Nº ${ticket.id}?');" class="btn waves-effect waves-light red btndelete">Deletar</a>
+									</c:if>
+									<c:if test="${ usuario_autenticado.getClass().getSimpleName() == 'UsuarioTecnico' }">
+										<a href="atender/${ticket.id}" class="btn waves-effect waves-light blue">Atender Ticket</a>
+										<a href="finalizar/${ticket.id}" class="btn waves-effect waves-light blue">Finalizar Ticket</a>
+									</c:if>
+									
 								</td>
 							</tr>
 						</c:forEach>

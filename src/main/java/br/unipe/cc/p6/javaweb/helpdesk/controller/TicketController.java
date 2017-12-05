@@ -66,5 +66,27 @@ public class TicketController {
 		map.addAttribute("tickets", ticketService.listar());
 		return "ticket/listar";
 	}
+	
+	@RequestMapping(value="/atender/{id}", method = RequestMethod.GET)
+	public String Atender(@PathVariable("id") Long id, ModelMap map, HttpSession session) {
+		Ticket ticket = ticketService.procurarPorId(id);
+		
+		ticket.setStatus(Status.EM_ATENDIMENTO);
+		
+		ticketService.salvar(ticket);
+		
+		return "redirect:../listar";
+	}	
 
+	@RequestMapping(value="/finalizar/{id}", method = RequestMethod.GET)
+	public String Finalizar(@PathVariable("id") Long id, ModelMap map, HttpSession session) {
+		Ticket ticket = ticketService.procurarPorId(id);
+		
+		ticket.setStatus(Status.RESOLVIDO);
+		
+		ticketService.salvar(ticket);
+		
+		return "redirect:../listar";
+	}		
+	
 }

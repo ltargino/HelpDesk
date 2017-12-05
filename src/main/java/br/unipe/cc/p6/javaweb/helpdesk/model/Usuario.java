@@ -84,5 +84,5 @@ public class Usuario implements IModel{
 	public boolean verificarSenha(String senha) {
 		return this.senha.equals(senha);
 	}
-
+	
 }
